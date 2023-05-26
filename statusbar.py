@@ -7,7 +7,7 @@ Creador:    Gonzalo Déniz Acosta
 """
 
 
-def statusbar(tam, total, correctas):
+def statusbar(tam: int, total: int, correctas: int) -> str:
     """ Devuelve una barra donde se refleja el porcentaje
         de operaciones correctas
         Arg:
@@ -25,14 +25,18 @@ def statusbar(tam, total, correctas):
     corr_por = int((correctas * 100) / total)
     return "[{:<{width}}] {por}% SUCESS".format('=' * corr_rel, width=tam, por=corr_por)
 
-def main():
-		TAM = 50		# Tamaño de la barra
-		TOTAL = 10		# Total de elementos. El porcentaje se calculará en base a esta constante
 
-		# Muestra 10 barras para enseñar el comportamiento
-		for x in range(TOTAL+1):
-			txt = statusbar(tam=TAM, total=TOTAL, correctas=x)
-			print('')
-			print(txt)
+def main():
+    tam = 50  # Tamaño de la barra
+    total = 10  # Total de elementos. El porcentaje se calculará en base a esta constante
+
+    # Muestra 10 barras para enseñar el comportamiento
+    for x in range(total + 1):
+        txt = statusbar(tam=tam, total=total, correctas=x)
+        print('')
+        print(txt)
+
+    print(statusbar(tam=tam, total=total, correctas=5))
+
 
 main()
